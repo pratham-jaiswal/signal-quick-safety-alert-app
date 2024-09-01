@@ -14,14 +14,18 @@
       "backgroundColor": "#1d6580"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "runtimeVersion": {
+        "policy": "appVersion"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#1d6580"
       },
-      "package": "com.maxxdevs.signal"
+      "package": "com.maxxdevs.signal",
+      "runtimeVersion": "1.0.0"
     },
     "web": {
       "bundler": "metro",
@@ -33,6 +37,17 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "2ea41420-4069-4ca3-8673-6d07d19aced3"
+      }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/2ea41420-4069-4ca3-8673-6d07d19aced3"
     }
   }
 }
