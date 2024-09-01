@@ -1,16 +1,17 @@
 {
   "expo": {
-    "name": "signal",
-    "slug": "signal",
+    "name": "Signal",
+    "slug": "Signal",
     "version": "1.0.0",
     "orientation": "portrait",
+    "description": "A simple app that allows users to send a quick alert with a pre-set message and their location to trusted contacts if they feel unsafe.",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "signal",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#1d6580"
     },
     "ios": {
       "supportsTablet": true
@@ -18,8 +19,9 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "backgroundColor": "#1d6580"
+      },
+      "package": "com.maxxdevs.signal"
     },
     "web": {
       "bundler": "metro",
