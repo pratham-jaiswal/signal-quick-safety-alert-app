@@ -49,11 +49,6 @@ export default function Home() {
         contacts.map((contact) => contact.phoneNumbers[0].number),
         formattedMessage
       );
-      if (result === "sent") {
-        Alert.alert("Alert sent successfully!");
-      } else {
-        Alert.alert("Failed to send alert.");
-      }
     } else {
       Alert.alert("No trusted contacts selected.");
     }
