@@ -13,7 +13,7 @@ import * as Contacts from "expo-contacts";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AntDesign } from "@expo/vector-icons";
 
-export default function TrustedContacts({ navigation }) {
+export default function TrustedContacts() {
   const [contactList, setContactList] = useState([]);
   const [selectedContacts, setSelectedContacts] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
