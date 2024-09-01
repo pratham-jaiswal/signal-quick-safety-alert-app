@@ -1,36 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { View, StyleSheet, Alert, Text, TouchableOpacity, TouchableHighlight } from "react-native";
 import * as Location from "expo-location";
 import * as SMS from "expo-sms";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useFocusEffect } from "expo-router";
 
 export default function Home() {
   const [contacts, setContacts] = useState([]);
   const [message, setMessage] = useState("I need help!");
   const [pressed, setPressed] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const savedContacts = await AsyncStorage.getItem('contacts');
-        const savedMessage = await AsyncStorage.getItem('message');
-        
-        if (savedContacts) {
-          setContacts(JSON.parse(savedContacts));
+  useFocusEffect(
+    useCallback(() => {
+      const fetchData = async () => {
+        try {
+          const savedContacts = await AsyncStorage.getItem('contacts');
+          const savedMessage = await AsyncStorage.getItem('message');
+          
+          if (savedContacts) {
+            setContacts(JSON.parse(savedContacts));
+          }
+          if (savedMessage) {
+            setMessage(savedMessage);
+          }
+        } catch (error) {
+          console.error('Failed to load data from AsyncStorage', error);
         }
-        if (savedMessage) {
-          setMessage(savedMessage);
-        }
-      } catch (error) {
-        console.error('Failed to load data from AsyncStorage', error);
-      }
-    };
-
-    fetchData();
-  }, []);
+      };
+  
+      fetchData();
+    }, [])
+  );
 
   const sendAlert = async () => {
-    console.log(contacts[0].phoneNumbers[0].number);
+    console.log(contacts.length);
     const { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== "granted") {
       Alert.alert("Permission to access location was denied");
